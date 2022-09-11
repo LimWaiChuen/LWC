@@ -1,0 +1,32 @@
+To use the system, it is required to download Python since this will be software is used to store the code of the system. 
+Python can be downloaded at the official website https://www.python.org/downloads/
+
+1. Open the .py script file of the system and change the file path in the os.chdir() to
+the file where the images are located. 
+
+2. Open the command prompt and change the directory to where the .py script file of the system is located. 
+
+3. Locate the python.exe and copy the file path. 
+
+4. Paste the file path at the command prompt. 
+
+5. Enter the name of the .py script file and type --input. 
+
+6. Insert the name of the image in "".
+
+The syntax of the command should be [path to python.exe]\python.exe  [name of the script file]  –input [“name of the image”]
+
+
+
+Upon execution, the image will be loaded into the system, resized and blurred. 
+Then, histogram equilization is perform on the image followed by color segmentation used predefined color masks. 
+The next step is otsu thresholding to produce a binary image. 
+A border will be drawn on the image to connect the black area in the image for the purpose of the flood fill operation. 
+Each color segmented will undergo flood fill operation and the mask for each color is obtained. 
+The system will then perform morphological transformation to reduce noise in mask. 
+The contour of each color is found and the area of contour that does not fulfill the requirements will be removed. 
+The yellow color mask is dilated. 
+The length of bounding point of each contour is calculated and the smallest array length among red, blur and yellow mask will be chosen as the region of the traffic sign. 
+A bounding box is drawn on the original image to highlight where the traffic sign is located in the image. 
+The segementation image is displayed in a new window. 
+Lastly, the intersection over union value of the image will be calculate and displayed in the command prompt.
